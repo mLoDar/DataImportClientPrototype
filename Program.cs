@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using static DesktopClientPrototype.Program;
 
 
 
@@ -43,8 +42,8 @@ namespace DesktopClientPrototype
             photovoltaic = "undefined"
         };
 
-        static string dateTimeOfLastExport = "26.03.2024 - 16:10:23";
-        static int countOfLastExportErrors = 0;
+        private static readonly string _dateTimeOfLastExport = "26.03.2024 - 16:10:23";
+        private static readonly int _countOfLastExportErrors = 0;
 
         
 
@@ -69,7 +68,7 @@ namespace DesktopClientPrototype
             string stateDistrictHeat = UiTextDistrictHeat();
             string statePhotovoltaic = UiTextPhotovoltaic();
 
-            string stateLastExport = $"\x1B[9{(countOfLastExportErrors > 0 ? "1" : "2")}m{countOfLastExportErrors} {(countOfLastExportErrors > 1 || countOfLastExportErrors <= 0 ? "Errors" : "Error")}\x1B[97m";
+            string stateLastExport = $"\x1B[9{(_countOfLastExportErrors > 0 ? "1" : "2")}m{_countOfLastExportErrors} {(_countOfLastExportErrors > 1 || _countOfLastExportErrors <= 0 ? "Errors" : "Error")}\x1B[97m";
 
 
 
@@ -91,7 +90,7 @@ namespace DesktopClientPrototype
             Console.WriteLine("                                                               ");
             Console.WriteLine("             │ EXPORT                                          ");
             Console.WriteLine("             └─────────                                        ");
-            Console.WriteLine("             [5] Last created at '{0}'                         ", dateTimeOfLastExport);
+            Console.WriteLine("             [5] Last created at '{0}'                         ", _dateTimeOfLastExport);
             Console.WriteLine("                 with: {0}                                     ", stateLastExport);
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
@@ -108,6 +107,7 @@ namespace DesktopClientPrototype
                     break;
 
                 case '1':
+                    Weather.Start();
                     break;
 
                 case '2':
