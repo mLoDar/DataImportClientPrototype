@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DataImportClientPrototype.Modules;
+using System.Text;
 
 
 
@@ -53,10 +54,11 @@ namespace DataImportClientPrototype
         {
         LabelMethodEntry:
 
-            
 
-            Console.Title = "Digital HTL Footprint";
+
+            Console.Title = "DHF - ImportClient";
             Console.OutputEncoding = Encoding.UTF8;
+
             Console.CursorVisible = false;
 
             Console.Clear();
@@ -78,11 +80,11 @@ namespace DataImportClientPrototype
 
 
 
-            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m┳┓•  •   ┓", "\u001b[97m┓┏┏┳┓┓ ", "\u001b[91m┏┓         •   \u001b[97m");
-            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m┃┃┓┏┓┓╋┏┓┃", "\u001b[97m┣┫ ┃ ┃ ", "\u001b[91m┣ ┏┓┏┓╋┏┓┏┓┓┏┓╋\u001b[97m");
-            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m┻┛┗┗┫┗┗┗┻┗", "\u001b[97m┛┗ ┻ ┗┛", "\u001b[91m┻ ┗┛┗┛┗┣┛┛ ┗┛┗┗\u001b[97m");
-            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m    ┛     ", "\u001b[97m       ", "\u001b[91m       ┛       \u001b[97m");
-            Console.WriteLine("             ─────────────────────────────────────────");
+            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m┳┓•  •   ┓", "\u001b[97m┓┏┏┳┓┓ ", "\u001b[91m┏┓         •   \u001b[97m");
+            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m┃┃┓┏┓┓╋┏┓┃", "\u001b[97m┣┫ ┃ ┃ ", "\u001b[91m┣ ┏┓┏┓╋┏┓┏┓┓┏┓╋\u001b[97m");
+            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m┻┛┗┗┫┗┗┗┻┗", "\u001b[97m┛┗ ┻ ┗┛", "\u001b[91m┻ ┗┛┗┛┗┣┛┛ ┗┛┗┗\u001b[97m");
+            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m    ┛     ", "\u001b[97m       ", "\u001b[91m       ┛       \u001b[97m");
+            Console.WriteLine("             ─────────────────────────────────────────         ");
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
@@ -96,8 +98,8 @@ namespace DataImportClientPrototype
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
             Console.WriteLine("             ┌ Application                                     ");
-            Console.WriteLine("             └────────────────┐                                 ");
-            Console.WriteLine("             {0} Settings                                   ", $"[\u001b[91m{(_navigationXPosition == 5 ? ">" : " ")}\u001b[97m]");
+            Console.WriteLine("             └────────────────┐                                ");
+            Console.WriteLine("             {0} Settings                                      ", $"[\u001b[91m{(_navigationXPosition == 5 ? ">" : " ")}\u001b[97m]");
 
 
 
@@ -142,7 +144,7 @@ namespace DataImportClientPrototype
             switch (_navigationXPosition)
             {
                 case 1:
-                    
+                    new Weather().Start();
                     break;
 
                 case 2:
@@ -158,7 +160,7 @@ namespace DataImportClientPrototype
                     break;
 
                 case 5:
-                    
+                    new Settings().Start();
                     break;
             }
 
