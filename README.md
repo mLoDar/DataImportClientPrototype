@@ -16,8 +16,11 @@ This repository aims to do the following things:
 There should be **two** types of error logging
 1. Logging to a local file
 2. Having a temporary error cache
+   
 ```(This should include the last 50-100 errors cached inside a List<string>)```
+
 Why this system?
+
 If there is an error with writing to the error file, the application should have saved the reason somewhere.
 
 That should be the entire purpose of this temporary error cache
