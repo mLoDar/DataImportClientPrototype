@@ -4,7 +4,7 @@
 
 
 
-namespace DesktopClientPrototype
+namespace DataImportClientPrototype
 {
     internal class Program
     {
@@ -42,11 +42,11 @@ namespace DesktopClientPrototype
             photovoltaic = "undefined"
         };
 
-        private static readonly string _dateTimeOfLastExport = "26.03.2024 - 16:10:23";
         private static readonly int _countOfLastExportErrors = 0;
 
-        
 
+        private static int _navigationXPosition = 1;
+        private static int _countOfMenuOptions = 5;
 
 
         static void Main()
@@ -55,10 +55,16 @@ namespace DesktopClientPrototype
 
             
 
-            Console.Title = "Digital Electronic Fingerprint";
+            Console.Title = "Digital HTL Footprint";
             Console.OutputEncoding = Encoding.UTF8;
+            Console.CursorVisible = false;
 
             Console.Clear();
+
+
+
+        LabelDrawUi:
+
             Console.SetCursorPosition(0, 4);
 
 
@@ -72,59 +78,96 @@ namespace DesktopClientPrototype
 
 
 
-            Console.WriteLine("             {0} {1} {2}                                       ", "\u001b[91m┳┓•  •   ┓", "\u001b[97m┏┓┓          • ", "\u001b[91m┏┓•            •   \u001b[97m");
-            Console.WriteLine("             {0} {1} {2}                                       ", "\u001b[91m┃┃┓┏┓┓╋┏┓┃", "\u001b[97m┣ ┃┏┓┏╋┏┓┏┓┏┓┓┏", "\u001b[91m┣ ┓┏┓┏┓┏┓┏┓┏┓┏┓┓┏┓╋\u001b[97m");
-            Console.WriteLine("             {0} {1} {2}                                       ", "\u001b[91m┻┛┗┗┫┗┗┗┻┗", "\u001b[97m┗┛┗┗ ┗┗┛ ┗┛┛┗┗┗", "\u001b[91m┻ ┗┛┗┗┫┗ ┛ ┣┛┛ ┗┛┗┗\u001b[97m");
-            Console.WriteLine("             {0} {1} {2}                                       ", "\u001b[91m    ┛     ", "\u001b[97m               ", "\u001b[91m      ┛    ┛       \u001b[97m");
-            Console.WriteLine("             ──────────────────────────────────────────────────");
+            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m┳┓•  •   ┓", "\u001b[97m┓┏┏┳┓┓ ", "\u001b[91m┏┓         •   \u001b[97m");
+            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m┃┃┓┏┓┓╋┏┓┃", "\u001b[97m┣┫ ┃ ┃ ", "\u001b[91m┣ ┏┓┏┓╋┏┓┏┓┓┏┓╋\u001b[97m");
+            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m┻┛┗┗┫┗┗┗┻┗", "\u001b[97m┛┗ ┻ ┗┛", "\u001b[91m┻ ┗┛┗┛┗┣┛┛ ┗┛┗┗\u001b[97m");
+            Console.WriteLine("              {0} {1} {2}                                       ", "\u001b[91m    ┛     ", "\u001b[97m       ", "\u001b[91m       ┛       \u001b[97m");
+            Console.WriteLine("             ─────────────────────────────────────────");
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
-            Console.WriteLine("             │ IMPORT                            State         ");
-            Console.WriteLine("             └─────────                          ┌───┐         ");
-            Console.WriteLine("             [1] Weather                         │ {0}         ", stateWeather);
-            Console.WriteLine("             [2] Electricity                     │ {0}         ", stateElectricity);
-            Console.WriteLine("             [3] DistrictHeat                    │ {0}         ", stateDistrictHeat);
-            Console.WriteLine("             [4] Photovoltaic                    │ {0}         ", statePhotovoltaic);
+            Console.WriteLine("             ┌ Modules                           State         ");
+            Console.WriteLine("             └────────────────┐                  ┌───┐         ");
+            Console.WriteLine("             {0} Weather                         │ {1}         ", $"[\u001b[91m{(_navigationXPosition == 1 ? ">" : " ")}\u001b[97m]", stateWeather);
+            Console.WriteLine("             {0} Electricity                     │ {1}         ", $"[\u001b[91m{(_navigationXPosition == 2 ? ">" : " ")}\u001b[97m]", stateElectricity);
+            Console.WriteLine("             {0} DistrictHeat                    │ {1}         ", $"[\u001b[91m{(_navigationXPosition == 3 ? ">" : " ")}\u001b[97m]", stateDistrictHeat);
+            Console.WriteLine("             {0} Photovoltaic                    │ {1}         ", $"[\u001b[91m{(_navigationXPosition == 4 ? ">" : " ")}\u001b[97m]", statePhotovoltaic);
             Console.WriteLine("                                                 └───┘         ");
             Console.WriteLine("                                                               ");
-            Console.WriteLine("             │ EXPORT                                          ");
-            Console.WriteLine("             └─────────                                        ");
-            Console.WriteLine("             [5] Last created at '{0}'                         ", _dateTimeOfLastExport);
-            Console.WriteLine("                 with: {0}                                     ", stateLastExport);
             Console.WriteLine("                                                               ");
-            Console.WriteLine("                                                               ");
-            Console.Write("             > ");
+            Console.WriteLine("             ┌ Application                                     ");
+            Console.WriteLine("             └────────────────┐                                 ");
+            Console.WriteLine("             {0} Settings                                   ", $"[\u001b[91m{(_navigationXPosition == 5 ? ">" : " ")}\u001b[97m]");
 
 
 
-            char pressedKey = Console.ReadKey(true).KeyChar;
+            bool enterKeyPressed = false;
+            ConsoleKey pressedKey = Console.ReadKey(true).Key;
 
             switch (pressedKey)
             {
-                case (char)ConsoleKey.Escape:
-                    Environment.Exit(0);
+                case ConsoleKey.DownArrow:
+                    if (_navigationXPosition + 1 <= _countOfMenuOptions)
+                    {
+                        _navigationXPosition += 1;
+                    }
                     break;
 
-                case '1':
-                    Weather.Start();
+                case ConsoleKey.UpArrow:
+                    if (_navigationXPosition - 1 >= 1)
+                    {
+                        _navigationXPosition -= 1;
+                    }
                     break;
 
-                case '2':
+                case ConsoleKey.Enter:
+                    enterKeyPressed = true;
                     break;
 
-                case '3':
-                    break;
-
-                case '4':
-                    break;
-
-                case '5':
+                default:
                     break;
             }
-            
-            goto LabelMethodEntry;
+
+
+
+            if (enterKeyPressed == false)
+            {
+                goto LabelDrawUi;
+            }
+
+            enterKeyPressed = false;
+
+
+
+            switch (_navigationXPosition)
+            {
+                case 1:
+                    
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+
+                case 5:
+                    
+                    break;
+            }
+
+            goto LabelDrawUi;
         }
+
+
+
+
 
         private static string UiTextWeather()
         {
