@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Globalization;
+using System.Diagnostics;
 
 
 
@@ -113,7 +114,8 @@ namespace DataImportClientPrototype.Modules
             switch (navigationXPosition)
             {
                 case 1:
-
+                    // Open log file
+                    Process.Start("notepad");
                     break;
 
                 case 2:

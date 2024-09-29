@@ -41,7 +41,7 @@ namespace DataImportClientPrototype
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
-            Console.WriteLine("             ┌ Adjust settigns                                 ");
+            Console.WriteLine("             ┌ Adjust settings                                 ");
             Console.WriteLine("             └──────────────────────┐                          ");
             Console.WriteLine("             {0} Open settings file                            ", $"[\u001b[91m{(navigationXPosition == 1 ? ">" : " ")}\u001b[97m]");
             Console.WriteLine("                                                               ");
@@ -106,8 +106,10 @@ namespace DataImportClientPrototype
 
                 case 2:
                     // Redirect to new console menu
-                    break;
+                    new ErrorCache().Start();
 
+                    Console.Clear();
+                    break;
                 case 3:
                     // Open error cache in file
                     Process.Start("notepad");

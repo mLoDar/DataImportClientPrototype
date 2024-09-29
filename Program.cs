@@ -55,7 +55,6 @@ namespace DataImportClientPrototype
         LabelMethodEntry:
 
 
-
             Console.Title = "DHF - ImportClient";
             Console.OutputEncoding = Encoding.UTF8;
 
@@ -145,6 +144,8 @@ namespace DataImportClientPrototype
             {
                 case 1:
                     new Weather().Start();
+                    Console.Clear();
+
                     break;
 
                 case 2:
@@ -161,6 +162,8 @@ namespace DataImportClientPrototype
 
                 case 5:
                     new Settings().Start();
+                    Console.Clear();
+
                     break;
             }
 
