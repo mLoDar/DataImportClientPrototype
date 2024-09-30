@@ -11,7 +11,7 @@ namespace DataImportClientPrototype.Modules
     internal class Photovoltaic
     {
         private static bool _serviceRunning = true;
-        private static int _countOfErrors = 0;
+        private static int _countOfErrors = 1234;
 
 
 
@@ -34,7 +34,7 @@ namespace DataImportClientPrototype.Modules
         LabelDrawUi:
 
             string lastImport = "09.04.2024 - 19:30:00";
-            string lastLogFileEntry = DateTime.Now.ToString("dd.MM.yyyy - HH:mm:ss");
+            string lastLogFileEntry = "25.22.2024 - 25:15:00 this is a faulty datetime for demonstration purposes";
 
             Console.SetCursorPosition(0, 4);
 
@@ -142,13 +142,11 @@ namespace DataImportClientPrototype.Modules
         {
             if (!DateTime.TryParseExact(dateTime, "dd.MM.yyyy - HH:mm:ss", null, DateTimeStyles.None, out DateTime providedDateTime))
             {
-                Console.WriteLine("first if");
                 return "\u001b[96m?\u001b[97m │ \u001b[96mUnknown\u001b[97m";
             }
 
             if (providedDateTime > DateTime.Now)
             {
-                Console.WriteLine("second if");
                 return "\u001b[96m?\u001b[97m │ \u001b[96mUnknown\u001b[97m";
             }
 

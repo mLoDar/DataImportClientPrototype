@@ -11,7 +11,7 @@ namespace DataImportClientPrototype.Modules
     internal class DistrictHeat
     {
         private static bool _serviceRunning = true;
-        private static int _countOfErrors = 1;
+        private static int _countOfErrors = 5;
 
 
 
@@ -34,7 +34,7 @@ namespace DataImportClientPrototype.Modules
         LabelDrawUi:
 
             string lastImport = "09.04.2024 - 19:30:00";
-            string lastLogFileEntry = "25.22.2024 - 25:15:00 this is a faulty datetime for demonstration purposes";
+            string lastLogFileEntry = DateTime.Now.AddMinutes(-60).ToString("dd.MM.yyyy - HH:mm:ss");
 
             Console.SetCursorPosition(0, 4);
 

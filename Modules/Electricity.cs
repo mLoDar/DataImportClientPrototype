@@ -11,7 +11,7 @@ namespace DataImportClientPrototype.Modules
     internal class Electricity
     {
         private static bool _serviceRunning = false;
-        private static int _countOfErrors = 634;
+        private static int _countOfErrors = 1;
 
 
 
@@ -34,7 +34,7 @@ namespace DataImportClientPrototype.Modules
         LabelDrawUi:
 
             string lastImport = "09.04.2024 - 19:30:00";
-            string lastLogFileEntry = "25.09.2024 - 08:15:00";
+            string lastLogFileEntry = DateTime.Now.AddMinutes(-30).ToString("dd.MM.yyyy - HH:mm:ss");
 
             Console.SetCursorPosition(0, 4);
 

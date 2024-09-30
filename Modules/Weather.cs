@@ -11,7 +11,7 @@ namespace DataImportClientPrototype.Modules
     internal class Weather
     {
         private static bool _serviceRunning = true;
-        private static int _countOfErrors = 27;
+        private static int _countOfErrors = 0;
 
 
 
@@ -34,7 +34,7 @@ namespace DataImportClientPrototype.Modules
         LabelDrawUi:
 
             string lastImport = "09.04.2024 - 19:30:00";
-            string lastLogFileEntry = "25.09.2024 - 08:15:00";
+            string lastLogFileEntry = DateTime.Now.ToString("dd.MM.yyyy - HH:mm:ss");
 
             Console.SetCursorPosition(0, 4);
 

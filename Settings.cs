@@ -82,6 +82,10 @@ namespace DataImportClientPrototype
                     enterKeyPressed = true;
                     break;
 
+                case ConsoleKey.Backspace:
+                    Console.Clear();
+                    return;
+
                 default:
                     break;
             }
