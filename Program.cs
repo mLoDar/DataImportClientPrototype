@@ -155,6 +155,8 @@ namespace DataImportClientPrototype
                     break;
 
                 case 3:
+                    new DistrictHeat().Start();
+                    Console.Clear();
 
                     break;
 

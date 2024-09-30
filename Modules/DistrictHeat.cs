@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataImportClientPrototype.Modules
 {
-    internal class Electricity
+    internal class DistrictHeat
     {
-        private static bool _serviceRunning = false;
-        private static int _countOfErrors = 634;
+        private static bool _serviceRunning = true;
+        private static int _countOfErrors = 1;
 
 
 
@@ -34,7 +34,7 @@ namespace DataImportClientPrototype.Modules
         LabelDrawUi:
 
             string lastImport = "09.04.2024 - 19:30:00";
-            string lastLogFileEntry = "25.09.2024 - 08:15:00";
+            string lastLogFileEntry = "25.22.2024 - 25:15:00 this is a faulty datetime for demonstration purposes";
 
             Console.SetCursorPosition(0, 4);
 
@@ -47,10 +47,9 @@ namespace DataImportClientPrototype.Modules
             string formatError = FormatErrorCount(_countOfErrors);
 
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("              ┏┓┓      • •                                     ");
-            Console.WriteLine("              ┣ ┃┏┓┏╋┏┓┓┏┓╋┓┏                                  ");
-            Console.WriteLine("              ┗┛┗┗ ┗┗┛ ┗┗┗┗┗┫                                  ");
-            Console.WriteLine("                            ┛                                  ");
+            Console.WriteLine("              ┳┓•     •    ┓┏                                  ");
+            Console.WriteLine("              ┃┃┓┏┏╋┏┓┓┏╋  ┣┫┏┓┏┓╋                             ");
+            Console.WriteLine("              ┻┛┗┛┗┗┛ ┗┗┗  ┛┗┗ ┗┻┗                             ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("             ────────────────────                              ");
             Console.ForegroundColor = ConsoleColor.White;
