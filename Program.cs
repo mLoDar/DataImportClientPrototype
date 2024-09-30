@@ -144,32 +144,28 @@ namespace DataImportClientPrototype
             {
                 case 1:
                     new Weather().Start();
-                    Console.Clear();
-
                     break;
 
                 case 2:
                     new Electricity().Start();
-                    Console.Clear();
-
                     break;
 
                 case 3:
                     new DistrictHeat().Start();
-                    Console.Clear();
-
                     break;
 
                 case 4:
-
+                    new Photovoltaic().Start();
                     break;
 
                 case 5:
                     new Settings().Start();
-                    Console.Clear();
-
                     break;
             }
+
+            Console.Clear();
+
+
 
             goto LabelDrawUi;
         }
