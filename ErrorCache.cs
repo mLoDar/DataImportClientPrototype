@@ -13,7 +13,7 @@ namespace DataImportClientPrototype
         internal void Start()
         {
             int startIndex = 0;
-            int numberOfElementsToPrint = 12;
+            int numberOfElementsToPrint = 10;
 
 
 

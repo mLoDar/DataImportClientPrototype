@@ -1,17 +1,17 @@
-﻿using System.Text;
-using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-
-
-
-
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DataImportClientPrototype.Modules
 {
-    internal class Weather
+    internal class Electricity
     {
-        private static bool _serviceRunning = true;
-        private static int _countOfErrors = 27;
+        private static bool _serviceRunning = false;
+        private static int _countOfErrors = 634;
 
 
 
@@ -38,7 +38,15 @@ namespace DataImportClientPrototype.Modules
 
             Console.SetCursorPosition(0, 4);
 
+/*
 
+
+
+
+
+
+
+ */
 
 
 
@@ -48,11 +56,12 @@ namespace DataImportClientPrototype.Modules
             string formatError = FormatErrorCount(_countOfErrors);
 
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("              ┓ ┏     ┓                                        ");
-            Console.WriteLine("              ┃┃┃┏┓┏┓╋┣┓┏┓┏┓                                   ");
-            Console.WriteLine("              ┗┻┛┗ ┗┻┗┛┗┗ ┛                                    ");
+            Console.WriteLine("              ┏┓┓      • •                                     ");
+            Console.WriteLine("              ┣ ┃┏┓┏╋┏┓┓┏┓╋┓┏                                  ");
+            Console.WriteLine("              ┗┛┗┗ ┗┗┛ ┗┗┗┗┗┫                                  ");
+            Console.WriteLine("                            ┛                                  ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("             ──────────────────                                ");
+            Console.WriteLine("             ────────────────────                              ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");

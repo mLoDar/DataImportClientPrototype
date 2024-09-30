@@ -79,10 +79,10 @@ namespace DataImportClientPrototype
 
 
 
-            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m┳┓•  •   ┓", "\u001b[97m┓┏┏┳┓┓ ", "\u001b[91m┏┓         •   \u001b[97m");
-            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m┃┃┓┏┓┓╋┏┓┃", "\u001b[97m┣┫ ┃ ┃ ", "\u001b[91m┣ ┏┓┏┓╋┏┓┏┓┓┏┓╋\u001b[97m");
-            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m┻┛┗┗┫┗┗┗┻┗", "\u001b[97m┛┗ ┻ ┗┛", "\u001b[91m┻ ┗┛┗┛┗┣┛┛ ┗┛┗┗\u001b[97m");
-            Console.WriteLine("              {0} {1} {2}                                      ", "\u001b[91m    ┛     ", "\u001b[97m       ", "\u001b[91m       ┛       \u001b[97m");
+            Console.WriteLine("              {0}                                              ", "\u001b[91m┳┓•  •   ┓ \u001b[97m┓┏┏┳┓┓  \u001b[91m┏┓         •   \u001b[97m");
+            Console.WriteLine("              {0}                                              ", "\u001b[91m┃┃┓┏┓┓╋┏┓┃ \u001b[97m┣┫ ┃ ┃  \u001b[91m┣ ┏┓┏┓╋┏┓┏┓┓┏┓╋\u001b[97m");
+            Console.WriteLine("              {0}                                              ", "\u001b[91m┻┛┗┗┫┗┗┗┻┗ \u001b[97m┛┗ ┻ ┗┛ \u001b[91m┻ ┗┛┗┛┗┣┛┛ ┗┛┗┗\u001b[97m");
+            Console.WriteLine("              {0}                                              ", "\u001b[91m    ┛      \u001b[97m        \u001b[91m       ┛       \u001b[97m");
             Console.WriteLine("             ─────────────────────────────────────────         ");
             Console.WriteLine("                                                               ");
             Console.WriteLine("                                                               ");
@@ -149,6 +149,8 @@ namespace DataImportClientPrototype
                     break;
 
                 case 2:
+                    new Electricity().Start();
+                    Console.Clear();
 
                     break;
 
